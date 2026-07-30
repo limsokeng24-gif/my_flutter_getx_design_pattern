@@ -16,5 +16,10 @@ A new Flutter project.
   - Dependency Manager -> Service/ServiceImpl -> Create Object
     - ProductService _productService = new ProductService();
     - var productService = Get.find(ProductService());
+  - Module -> login
+    - Controller
+    - Binding
+    - View
+    - 
   - Bloc
   - LiverPod
