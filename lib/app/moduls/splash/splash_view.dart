@@ -7,6 +7,13 @@ class SplashView extends GetView<SplashController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Obx(() {
+      return Scaffold(
+        backgroundColor: Colors.cyan,
+        body: controller.loading.value == false
+            ? Center()
+            : Center(child: CircularProgressIndicator(color: Colors.white)),
+      );
+    });
   }
 }
