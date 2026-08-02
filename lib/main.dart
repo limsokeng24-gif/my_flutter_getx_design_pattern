@@ -6,6 +6,8 @@ import 'package:my_flutter_getx_design_pattern/app/cores/network/api_network_ser
 import 'package:my_flutter_getx_design_pattern/app/cores/network/api_network_service_impl.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/auth/login/login_binding.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/auth/login/login_view.dart';
+import 'package:my_flutter_getx_design_pattern/app/moduls/auth/register/register_binding.dart';
+import 'package:my_flutter_getx_design_pattern/app/moduls/auth/register/register_view.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/home/home_binding.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/home/home_view.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/splash/splash_binding.dart';
@@ -33,7 +35,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: "/", page: ()=> SplashView(), binding: SplashBinding(), transition: Transition.leftToRight),
         GetPage(name: "/home", page: ()=> HomeView(), binding: HomeBinding(), transition: Transition.leftToRight),
         GetPage(name: "/login", page: ()=> LoginView(), binding: LoginBinding(), transition: Transition.leftToRight),
-
+        GetPage(name: "/register", page: ()=> RegisterView(), binding: RegisterBinding(), transition: Transition.leftToRight),
       ],
 
     );
