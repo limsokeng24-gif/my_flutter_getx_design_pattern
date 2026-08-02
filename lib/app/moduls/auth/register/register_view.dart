@@ -1,89 +1,104 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:my_flutter_getx_design_pattern/app/moduls/auth/register/register_controller.dart';
-import 'package:my_flutter_getx_design_pattern/app/widgets/custom_button_widget.dart';
-import 'package:my_flutter_getx_design_pattern/app/widgets/custom_input_widget.dart';
+import 'package:get/get.dart';
+import '../../../widgets/custom_button_widget.dart';
+import '../../../widgets/custom_input_widget.dart';
+import 'register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
   const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Obx((){
+    return Obx(() {
       return Scaffold(
         appBar: AppBar(
-          title: Text("Register", style: TextStyle(color: Colors.white)),
-          iconTheme: IconThemeData(color: Colors.white),
           backgroundColor: Colors.cyan,
+          title: const Text("Register"),
+          centerTitle: true,
         ),
         body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 35),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomInputWidget(
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: CustomInputWidget(
+                        controller: controller.firstNameController.value,
+                        label: "First Name",
+                        hintText: "First Name",
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: CustomInputWidget(
+                        controller: controller.lastNameController.value,
+                        label: "Last Name",
+                        hintText: "Last Name",
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 16),
+                CustomInputWidget(
                   controller: controller.usernameController.value,
-                  label: "Username", hintText: "Username"),
-              CustomInputWidget(
-                  controller: controller.firstnameController.value,
-                  label: "Firstname", hintText: "Firstname"),
-              CustomInputWidget(
-                  controller: controller.lastnameController.value,
-                  label: "Lastname", hintText: "Lastname"),
-              CustomInputWidget(
+                  label: "Username",
+                  hintText: "Username",
+                ),
+                const SizedBox(height: 16),
+                CustomInputWidget(
                   controller: controller.emailController.value,
-                  label: "Email", hintText: "Email"),
-              CustomInputWidget(
-                  controller: controller.phoneNumberController.value,
-                  label: "Phone Number", hintText: "Phone Number"),
-              CustomInputWidget(
-                controller: controller.passwordController.value,
-                label: "Password",
-                hintText: "Password",
-                obscureText: controller.isPasswordHidden.value,
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    controller.isPasswordHidden.value
-                        ? Icons.visibility_off
-                        : Icons.visibility,
-                  ),
-                  onPressed: controller.togglePasswordVisibility,
+                  label: "Email",
+                  hintText: "Email",
                 ),
-
-              ),
-              CustomInputWidget(
-                controller: controller.confirmPasswordController.value,
-                label: "Confirm Password",
-                hintText: "Confirm Password",
-                obscureText: controller.isPasswordHidden.value,
-                suffixIcon: IconButton(
-                  icon: Icon(
-                    controller.isPasswordHidden.value
-                        ? Icons.visibility_off
-                        : Icons.visibility,
-                  ),
-                  onPressed: controller.togglePasswordVisibility,
+                const SizedBox(height: 16),
+                CustomInputWidget(
+                  controller: controller.phoneController.value,
+                  label: "Phone Number",
+                  hintText: "Phone Number",
                 ),
-
-              ),
-              CustomInputWidget(
-                  controller: controller.roleController.value,
-                  label: "Role", hintText: "Role"),
-              CustomInputWidget(
-                  controller: controller.profileController.value,
-                  label: "Profile", hintText: "profile"),
-              SizedBox(height: 35,),
-              CustomButtonWidget(
-                loading: controller.loading.value,
-                label: "Register",
-                onClick: (){
-                  controller.onRegister();
-
-                },
-
-              )
-
-            ],
+                const SizedBox(height: 16),
+                CustomInputWidget(
+                  controller: controller.passwordController.value,
+                  label: "Password",
+                  hintText: "Password",
+                  obscureText: controller.hidePassword.value,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      controller.hidePassword.value
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                    ),
+                    onPressed: controller.togglePassword,
+                  ),
+                ),
+                const SizedBox(height: 16),
+                CustomInputWidget(
+                  controller: controller.confirmPasswordController.value,
+                  label: "Confirm Password",
+                  hintText: "Confirm Password",
+                  obscureText: controller.hideConfirmPassword.value,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      controller.hideConfirmPassword.value
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                    ),
+                    onPressed: controller.toggleConfirmPassword,
+                  ),
+                ),
+                const SizedBox(height: 35),
+                CustomButtonWidget(
+                  loading: controller.loading.value,
+                  label: "Register",
+                  onClick: () {
+                    controller.onRegister();
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       );

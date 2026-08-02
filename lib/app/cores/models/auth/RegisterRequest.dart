@@ -1,14 +1,14 @@
 class RegisterRequest {
   RegisterRequest({
-      this.username, 
-      this.firstName, 
-      this.lastName, 
-      this.email, 
-      this.phoneNumber, 
-      this.password, 
-      this.confirmPassword, 
-      this.role, 
-      this.profile,});
+    this.username,
+    this.firstName,
+    this.lastName,
+    this.email,
+    this.phoneNumber,
+    this.password,
+    this.confirmPassword,
+    this.role,
+    this.profile,});
 
   RegisterRequest.fromJson(dynamic json) {
     username = json['username'];

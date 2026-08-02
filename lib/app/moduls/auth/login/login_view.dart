@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:my_flutter_getx_design_pattern/app/moduls/auth/login/login_controller.dart';
-import 'package:my_flutter_getx_design_pattern/app/widgets/custom_button_widget.dart';
-import 'package:my_flutter_getx_design_pattern/app/widgets/custom_input_widget.dart';
+
+import '../../../widgets/custom_button_widget.dart';
+import '../../../widgets/custom_input_widget.dart';
+import 'login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
   const LoginView({super.key});
@@ -28,7 +28,7 @@ class LoginView extends GetView<LoginController> {
                   controller: controller.usernameController.value,
                   label: "Username", hintText: "Username"),
               CustomInputWidget(
-                controller: controller.passswordController.value,
+                controller: controller.passwordController.value,
                 label: "Password",
                 hintText: "Password",
                 obscureText: controller.isPasswordHidden.value,
@@ -47,7 +47,6 @@ class LoginView extends GetView<LoginController> {
                 label: "login",
                 onClick: (){
                   controller.onLogin();
-
                 },
               ),
               SizedBox(height: 20),

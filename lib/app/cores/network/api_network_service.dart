@@ -5,5 +5,7 @@ import 'package:my_flutter_getx_design_pattern/app/cores/models/auth/RegisterRes
 
 abstract class ApiNetworkService {
   Future<LoginResponse> login(LoginRequest req);
-  Future<RegisterResponse> register(RegisterRequest Gereq);
+  Future<RegisterResponse> register(RegisterRequest req);
+  Future<bool> refreshToken();
+  Future<dynamic> get(String url);
 }
