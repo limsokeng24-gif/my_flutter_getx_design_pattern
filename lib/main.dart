@@ -12,6 +12,8 @@ import 'package:my_flutter_getx_design_pattern/app/moduls/auth/repository/auth_r
 import 'package:my_flutter_getx_design_pattern/app/moduls/auth/repository/auth_repository_impl.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/home/home_binding.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/home/home_view.dart';
+import 'package:my_flutter_getx_design_pattern/app/moduls/post/post_binding.dart';
+import 'package:my_flutter_getx_design_pattern/app/moduls/post/post_view.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/splash/splash_binding.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/splash/splash_view.dart';
 
@@ -55,6 +57,12 @@ class MyApp extends StatelessWidget {
           name: "/register",
           page: () => RegisterView(),
           binding: RegisterBinding(),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: "/posts",
+          page: () => PostView(),
+          binding: PostBinding(),
           transition: Transition.leftToRight,
         ),
       ],

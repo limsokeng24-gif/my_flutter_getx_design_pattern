@@ -103,9 +103,9 @@ class ApiNetworkServiceImpl extends ApiNetworkService {
       if (await refreshToken() == true) {
         headers["Authorization"] = "Bearer ${AccessToken.getToken()}";
         //Call To api
-        var retryresponse = await httpClient.post(url, headers: headers);
+        var retryResponse = await httpClient.post(url, headers: headers);
         if(response.statusCode == 200){
-          responseBody = retryresponse.body;
+          responseBody = retryResponse.body;
         }
       }
     }
