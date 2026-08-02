@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:my_flutter_getx_design_pattern/app/cores/network/api_network_service.dart';
+import 'package:my_flutter_getx_design_pattern/app/cores/network/api_network_service_impl.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/auth/login/login_binding.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/auth/login/login_view.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/home/home_binding.dart';
@@ -11,6 +13,7 @@ import 'package:my_flutter_getx_design_pattern/app/moduls/splash/splash_view.dar
 
 void main() async{
   await GetStorage.init();
+  Get.lazyPut<ApiNetworkService>(()=> ApiNetworkServiceImpl());
   runApp(const MyApp());
 }
 
