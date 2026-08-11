@@ -18,7 +18,8 @@ class HomeView extends GetView<HomeController> {
               Column(
                 children: [
                   ListTile(
-                    onTap: (){
+                    onTap: () {
+                      Navigator.pop(context);
                       Get.toNamed("/posts");
                     },
                     leading: Icon(

@@ -3,5 +3,5 @@ class ConstantUri {
   static const String loginPath = "$baseUrl/api/oauth/token";
   static const String refreshPath = "$baseUrl/api/oauth/refresh";
   static const String registerPath = "$baseUrl/api/oauth/register";
-
+  static const String listPostPath = "$baseUrl/api/app/post";
 }

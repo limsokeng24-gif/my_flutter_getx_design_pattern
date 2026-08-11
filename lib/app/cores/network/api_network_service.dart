@@ -7,5 +7,8 @@ abstract class ApiNetworkService {
   Future<LoginResponse> login(LoginRequest req);
   Future<RegisterResponse> register(RegisterRequest req);
   Future<bool> refreshToken();
-  Future<dynamic> get(String url);
+  Future<dynamic>get(String uri);
+  Future<dynamic> post(String uri, dynamic body);
+  Future<dynamic> put(String uri, dynamic body);
+  Future<dynamic> delete(String uri);
 }

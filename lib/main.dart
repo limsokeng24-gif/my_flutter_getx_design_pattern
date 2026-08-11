@@ -17,6 +17,9 @@ import 'package:my_flutter_getx_design_pattern/app/moduls/post/post_view.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/splash/splash_binding.dart';
 import 'package:my_flutter_getx_design_pattern/app/moduls/splash/splash_view.dart';
 
+import 'app/moduls/post/create_post_view.dart';
+import 'app/moduls/post/update_post_view.dart';
+
 void main() async {
   await GetStorage.init();
   Get.lazyPut<AuthRepository>(() => AuthRepositoryImpl(), fenix: true);
@@ -62,6 +65,19 @@ class MyApp extends StatelessWidget {
         GetPage(
           name: "/posts",
           page: () => PostView(),
+          binding: PostBinding(),
+          transition: Transition.leftToRight,
+        ),
+        GetPage(
+          name: "/create-post",
+          page: ()=> CreatePostView(),
+          binding: PostBinding(),
+          transition: Transition.leftToRight,
+        ),
+
+        GetPage(
+          name: "/update-post",
+          page: ()=> UpdatePostView(),
           binding: PostBinding(),
           transition: Transition.leftToRight,
         ),

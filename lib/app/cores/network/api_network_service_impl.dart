@@ -111,4 +111,62 @@ class ApiNetworkServiceImpl extends ApiNetworkService {
     }
     return responseBody;
   }
+
+  @override
+  Future post(String uri, dynamic body) async {
+    var url = Uri.parse(uri);
+
+    headers["Authorization"] = "Bearer ${AccessToken.getToken()}";
+
+    var response = await httpClient.post(
+      url,
+      headers: headers,
+      body: jsonEncode(body),
+    );
+
+    if (response.statusCode == 200 || response.statusCode == 201) {
+      return response.body;
+    }
+
+    return null;
+  }
+
+  @override
+  Future delete(String uri) async {
+    var url = Uri.parse(uri);
+
+    headers["Authorization"] = "Bearer ${AccessToken.getToken()}";
+
+    var response = await httpClient.delete(
+      url,
+      headers: headers,
+    );
+
+    return response.statusCode == 200;
+  }
+
+  @override
+  Future put(String uri, dynamic body) async {
+    var url = Uri.parse(uri);
+
+    headers["Authorization"] = "Bearer ${AccessToken.getToken()}";
+
+    var response = await httpClient.put(
+      url,
+      headers: headers,
+      body: jsonEncode(body),
+    );
+
+    print("PUT STATUS: ${response.statusCode}");
+    print("PUT BODY: ${response.body}");
+
+    if (response.statusCode == 200 ||
+        response.statusCode == 201 ||
+        response.statusCode == 204) {
+      return true;
+    }
+
+    return null;
+  }
+
 }
